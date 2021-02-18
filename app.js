@@ -8,10 +8,10 @@ app.use(cors());
 
 
 var conexion = mysql.createConnection({
-	host:'localhost',
-	user:'root',
-	password:'',
-	database:'articulosdb'
+	host:'kelloggdemo.c370jneuet7d.us-east-2.rds.amazonaws.com',
+	user:'admin',
+	password:'Frusciante3*',
+	database:'Kellogg_Demo'
 });
 
 conexion.connect(function(error){
