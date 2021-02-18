@@ -11,7 +11,8 @@ var conexion = mysql.createConnection({
 	host:'kelloggdemo.c370jneuet7d.us-east-2.rds.amazonaws.com',
 	user:'admin',
 	password:'Frusciante3*',
-	database:'Kellogg_Demo'
+	database:'Kellogg_Demo',
+	port:'3306'
 });
 
 conexion.connect(function(error){
