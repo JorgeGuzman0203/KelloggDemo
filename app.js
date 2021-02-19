@@ -6,19 +6,26 @@ var app = express();
 app.use(express.json());
 app.use(cors());
 
+var host='kelloggdemo.c370jneuet7d.us-east-2.rds.amazonaws.com';
+var user = 'admin';
+var password = 'Frusciante3*';
+var database = 'Kellogg_Demo';
+var puerto = 3306;
+
 
 var conexion = mysql.createConnection({
-	host:'kelloggdemo.c370jneuet7d.us-east-2.rds.amazonaws.com',
-	user:'admin',
-	password:'Frusciante3*',
-	database:'Kellogg_Demo',
-	port:3306
+	host: process.env.host,
+	user: process.env.user,
+	password: process.env.password,
+	database: process.env.database,
+	port:process.env.puerto
 });
 
 conexion.connect(function(error){
 	if(error){
-		throw error;
-		//console.error('Database connection failed: ' + error.stack); return;
+		//throw error;
+		console.error('Database connection failed: ' + error.stack); 
+		return;
 	}else{
 		console.log("Conexion Ok");
 	}
