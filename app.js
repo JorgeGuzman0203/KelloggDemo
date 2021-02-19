@@ -27,7 +27,7 @@ conexion.connect(function(error){
 
 app.get('/', function(req,res){
 	//res.send(index.html);
-	res.use('/index.html');
+	app.use(express.static('/', {index: 'index.html'}))
 });
 
 app.get('/api/articulos', (req,res)=>{
