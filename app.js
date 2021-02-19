@@ -6,19 +6,19 @@ var app = express();
 app.use(express.json());
 app.use(cors());
 
-var RDS_HOST = 'kelloggdemo.c370jneuet7d.us-east-2.rds.amazonaws.com';
-var RDS_USER = 'admin';
-var RDS_PASSWORD = 'Frusciante3*';
-var RDS_DATABASE = 'Kellogg_Demo';
-var RDS_PORT = 3306;
+var RDS_HOSTNAME = 	'kelloggdemo.c370jneuet7d.us-east-2.rds.amazonaws.com';
+var RDS_USERNAME = 	'admin';
+var RDS_PASSWORD = 	'Frusciante3*';
+var RDS_DB_NAME = 	'Kellogg_Demo';
+var RDS_PORT = 		3306;
 
 
 var conexion = mysql.createConnection({
-	host:RDS_HOST,
-	user:RDS_USER,
-	password:RDS_PASSWORD,
-	database:RDS_DATABASE,
-	port:RDS_PORT
+	host:'kelloggdemo.c370jneuet7d.us-east-2.rds.amazonaws.com',
+	user:'admin',
+	password:'Frusciante3*',
+	database:'Kellogg_Demo',
+	port:3306
 });
 
 conexion.connect(function(error){
