@@ -25,18 +25,18 @@ conexion.connect(function(error){
 	}
 });
 
-const http = require('http')
-const fs = require('fs')
+const http = require('http');
+const path = require('path');
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'content-type': 'text/html' })
-  fs.createReadStream('index.html').pipe(res)
-})
 
-app.get('/', function(req,res){
-	res.send(server);
-	
-});
+app.use(express.static("express"));
+// default URL for website
+app.use('/', function(req,res){
+    res.sendFile(path.join(__dirname+'/index.html'));
+    //__dirname : It will resolve to your project folder.
+  });
+
+
 
 app.get('/api/articulos', (req,res)=>{
 	conexion.query('SELECT * FROM articulos', (error,filas)=>{
