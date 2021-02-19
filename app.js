@@ -91,5 +91,5 @@ app.delete('/api/articulos/:id', (req, res)=>{
 const port = process.env.port || 3000;
 
 app.listen(port, function(){
-	console.log("Servidor Ok");
+	console.log("Servidor Ok Puerto:" + port);
 });
