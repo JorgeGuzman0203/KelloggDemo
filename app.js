@@ -17,9 +17,8 @@ var conexion = mysql.createConnection({
 
 conexion.connect(function(error){
 	if(error){
-		//throw error;
-		console.error('Database connection failed: ' + error.stack); 
-		return;
+		throw error;
+		//console.error('Database connection failed: ' + error.stack); return;
 	}else{
 		console.log("Conexion Ok");
 	}
