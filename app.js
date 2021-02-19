@@ -31,6 +31,19 @@ conexion.connect(function(error){
 	}
 });
 
+exports.handler = async (event) => {
+    const response = {
+        statusCode: 200,
+        headers: {
+            "Access-Control-Allow-Headers" : "Content-Type",
+            "Access-Control-Allow-Origin": "http://kdemo-env.eba-kahcrt4e.us-east-2.elasticbeanstalk.com/",
+            "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+        },
+        body: JSON.stringify('Hello from Lambda!'),
+    };
+    return response;
+};
+
 const http = require('http');
 const path = require('path');
 
