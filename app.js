@@ -34,7 +34,7 @@ const server = http.createServer((req, res) => {
 })
 
 app.get('/', function(req,res){
-	res.send('Ruta Inicio');
+	res.send(server);
 	
 });
 
