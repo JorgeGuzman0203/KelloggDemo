@@ -14,11 +14,11 @@ var RDS_PORT = 		3306;
 
 
 var conexion = mysql.createConnection({
-	host:'kelloggdemo.c370jneuet7d.us-east-2.rds.amazonaws.com',
-	user:'admin',
-	password:'Frusciante3*',
-	database:'Kellogg_Demo',
-	port:3306
+	host:RDS_HOSTNAME,
+	user:RDS_USERNAME,
+	password:RDS_PASSWORD,
+	database:process.env.RDS_DB_NAME,
+	port:process.env.RDS_PORT
 });
 
 conexion.connect(function(error){
