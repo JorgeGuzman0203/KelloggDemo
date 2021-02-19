@@ -25,9 +25,17 @@ conexion.connect(function(error){
 	}
 });
 
+const http = require('http')
+const fs = require('fs')
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'content-type': 'text/html' })
+  fs.createReadStream('index.html').pipe(res)
+})
+
 app.get('/', function(req,res){
-	//res.send(index.html);
-	app.use(express.static('/', {index: 'index.html'}))
+	res.send('Ruta Inicio');
+	
 });
 
 app.get('/api/articulos', (req,res)=>{
