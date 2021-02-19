@@ -27,7 +27,7 @@ conexion.connect(function(error){
 
 app.get('/', function(req,res){
 	//res.send(index.html);
-	router.use('/index.html');
+	res.use('/index.html');
 });
 
 app.get('/api/articulos', (req,res)=>{
