@@ -26,7 +26,7 @@ conexion.connect(function(error){
 });
 
 app.get('/', function(req,res){
-	res.send('Ruta Inicio');
+	res.send('/index.html');
 });
 
 app.get('/api/articulos', (req,res)=>{
