@@ -6,12 +6,6 @@ var app = express();
 app.use(express.json());
 app.use(cors());
 
-var RDS_HOSTNAME = 'kelloggdemo.c370jneuet7d.us-east-2.rds.amazonaws.com';
-var RDS_USERNAME = 'admin';
-var RDS_PASSWORD = 'Frusciante3*';
-var RDS_DB_NAME = 'Kellogg_Demo';
-var RDS_PORT = 3306;
-
 
 var conexion = mysql.createConnection({
 	host:'kelloggdemo.c370jneuet7d.us-east-2.rds.amazonaws.com',
@@ -31,31 +25,23 @@ conexion.connect(function(error){
 	}
 });
 
-exports.handler = async (event) => {
-    const response = {
-        statusCode: 200,
-        headers: {
-            "Access-Control-Allow-Headers" : "Content-Type",
-            "Access-Control-Allow-Origin": "http://kdemo-env.eba-kahcrt4e.us-east-2.elasticbeanstalk.com/",
-            "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
-        },
-        body: JSON.stringify('Hello from Lambda!'),
-    };
-    return response;
-};
-
 const http = require('http');
 const path = require('path');
 
-
+/*
 app.use(express.static("express"));
 // default URL for website
 app.use('/', function(req,res){
     res.sendFile(path.join(__dirname+'/index.html'));
     //__dirname : It will resolve to your project folder.
   });
+*/
 
 
+	app.get('/', function(req,res){
+	res.send('Ruta Inicio');
+	
+});
 
 app.get('/api/articulos', (req,res)=>{
 	conexion.query('SELECT * FROM articulos', (error,filas)=>{
@@ -121,3 +107,4 @@ const port = process.env.port || 3000;
 app.listen(port, function(){
 	console.log("Servidor Ok Puerto:" + port);
 });
+
